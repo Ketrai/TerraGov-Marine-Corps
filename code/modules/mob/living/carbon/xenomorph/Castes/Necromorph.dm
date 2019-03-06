@@ -32,13 +32,15 @@
 
 /mob/living/carbon/Xenomorph/Necromorph
 	caste_base_type = /mob/living/carbon/Xenomorph/Necromorph
-	icon = 'icons/Xeno/1x1_Xenos.dmi'
+	icon = 'icons/Xeno/48x48_Xenos.dmi'
 	icon_state = "Necromorph Walking"
 	maxHealth = 155
 	health = 155
 	away_timer = 2 MINUTES // These aren't as potent/important as other xenomorphs, you get two minutes, chances are more of these will pop up all the time.
 	tier = 0
 	upgrade = -1
+	pixel_x = -12
+	old_x = -12
 	wound_type = ""
 	actions = list(
 		/datum/action/xeno_action/xeno_resting,
