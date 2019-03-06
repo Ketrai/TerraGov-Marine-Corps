@@ -45,7 +45,7 @@
 	spit_types = list(/datum/ammo/xeno/sticky)
 
 	// *** Pheromones *** //
-	aura_strength = 2 //Hivelord's aura is not extremely strong, but better than Drones.
+	aura_strength = 2
 	aura_allowed = list("frenzy", "warding", "recovery")
 
 /datum/xeno_caste/hivelord/mature
@@ -182,8 +182,11 @@
 		/datum/action/xeno_action/build_tunnel,
 		/datum/action/xeno_action/toggle_speed,
 		/datum/action/xeno_action/toggle_pheromones,
-		/datum/action/xeno_action/activable/xeno_spit
+		/datum/action/xeno_action/shift_spits,
+		/datum/action/xeno_action/activable/xeno_spit,
+		/datum/action/xeno_action/activable/hivelord_sting
 		)
+	var/last_hivelord_sting = null
 
 
 
@@ -193,3 +196,7 @@
 	if(speed_activated)
 		if(locate(/obj/effect/alien/weeds) in loc)
 			. -= 1.5
+
+/mob/living/carbon/Xenomorph/Initialize()
+	. = ..()
+	update_spits() 
